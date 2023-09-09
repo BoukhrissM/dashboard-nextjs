@@ -1,14 +1,17 @@
 "use client";
 import Image from "next/image";
-import $ from "jquery";
-import schoolpng from "@/app/assets/school.png";
+import schoolpng from "./../../assets/school.png";
 import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
+
 const LoginForm = () => {
+  const state = useSelector((state) => state);
+
   const router = useRouter();
   return (
     <div className="max-w-md w-full p-6 bg-white dark:bg-slate-950 rounded-lg shadow-lg">
       <div className="flex justify-center mb-8">
-        <Image src={schoolpng} width={130} height={130} />
+        <Image src={schoolpng} width={130} height={130} alt="e-school" />
       </div>
       <h1 className="text-2xl font-semibold text-center text-gray-500 mt-8 mb-6 dark:text-gray-200">
         Start session
@@ -16,7 +19,7 @@ const LoginForm = () => {
       <form>
         <div className="mb-6">
           <label
-            for="email"
+            htmlFor="email"
             className="block mb-2 text-sm text-gray-600 dark:text-gray-100"
           >
             Email
@@ -31,7 +34,7 @@ const LoginForm = () => {
         </div>
         <div className="mb-6">
           <label
-            for="password"
+            htmlFor="password"
             className="block mb-2 text-sm text-gray-600 dark:text-gray-100"
           >
             Password
@@ -68,6 +71,8 @@ const LoginForm = () => {
       </div>
       <p className="text-xs text-gray-600 text-center mt-10">
         &copy; 2023 E-School
+
+        {`state  is : ${state.activePage}`}
       </p>
     </div>
   );

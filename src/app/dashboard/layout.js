@@ -1,13 +1,14 @@
-import AsideNavigation from "../components/AsideNavigation/AsideNavigation";
+import AsideNavigation from "../components/AsideNavigation/asideNavigation";
 import DashboardNavbar from "../components/Navbar/DashboardNavbar";
 import Grid from "@mui/material/Unstable_Grid2";
 import { Suspense } from "react";
+import {Paper} from "@mui/material";
 
 export const metadata = {
   title: "Dashboard | E-School",
 };
 
-const DashboardLayout = ({ children }) => {
+const dashboardLayout = ({ children }) => {
   return (
     <Suspense fallback={<div>loading</div>}>
       <Grid container>
@@ -18,8 +19,14 @@ const DashboardLayout = ({ children }) => {
           <Grid xs={12} className="bg-white h-16">
             <DashboardNavbar />
           </Grid>
-          <Grid xs={12} className="p-5">
+          <Grid
+            xs={12}
+            style={{ height: "90%" }}
+            className="overflow-y-scroll shadow-inner"
+          >
+            {/* <Paper elevation={0} className="h-full"> */}
             {children}
+            {/* </Paper> */}
           </Grid>
         </Grid>
       </Grid>
@@ -27,4 +34,4 @@ const DashboardLayout = ({ children }) => {
   );
 };
 
-export default DashboardLayout;
+export default dashboardLayout;

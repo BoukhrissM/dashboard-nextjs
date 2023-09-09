@@ -1,5 +1,9 @@
-export default function dashboardPage(){
-    return (
-        <div> lorem ipsum</div>
-    )
+import DashboardContent from "../components/dashboard-pages/dashboardContent/dashboardContent";
+
+export default function dashboardPage() {
+  return (
+      <div className="p-5">
+        <DashboardContent />
+      </div>
+  );
 }
